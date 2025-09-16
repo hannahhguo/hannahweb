@@ -1,26 +1,52 @@
+/* Tailwind v4: include all layers with one import */
 @import "tailwindcss";
 
+:root {
+  color-scheme: light; /* prevents browsers from auto-darkening default colors */
+}
+
+/* Hard-set page background & text so defaults never show through */
+html, body {
+  background: #ffffff !important;
+  color: #0f172a; /* slate-900 */
+}
+
+/* Optional niceties */
+html { scroll-behavior: smooth; }
+:root { --radius: 16px; }
+
+/* Light/Dark design tokens */
 :root {
   --background: #ffffff;
   --foreground: #171717;
 }
 
+/* Tailwind v4 design tokens + font variables */
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+  /* If you use next/font, map your font var here */
+  --font-sans: var(--font-sans);   /* see layout.tsx example below */
+  --font-mono: var(--font-mono);
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: 'Archivo', sans-serif;
 }
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Clash Display', sans-serif;
+}
+
+@layer utilities {
+  .font-archivo {
+    font-family: 'Archivo', sans-serif;
+  }
+  .font-clash {
+    font-family: 'Clash Display', sans-serif;
+  }
+}
+
