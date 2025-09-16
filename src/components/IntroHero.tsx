@@ -70,7 +70,7 @@ export default function IntroHero() {
         <div className="overflow-hidden rounded-3xl ring-1 ring-slate-200">
           <Image
             src="/me.jpg"
-            alt="Portrait of Hannah Guo"
+            alt="Hannah Guo"
             width={640}
             height={800}
             priority
